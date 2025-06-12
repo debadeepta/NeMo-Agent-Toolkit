@@ -1,0 +1,20 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools >= 64", "setuptools-scm>=8"]
+
+[tool.setuptools_scm]
+root = "../.."
+
+[project]
+name = "syftr_retriever"
+dynamic = ["version"]
+dependencies = ["aiqtoolkit[llama-index]"]
+requires-python = ">=3.11,<3.13"
+description = "Syftr Retriever"
+classifiers = ["Programming Language :: Python"]
+
+[tool.uv.sources]
+aiqtoolkit = { path = "../..", editable = true }
+
+[project.entry-points.'aiq.components']
+syftr_retriever = "syftr_retriever.register"
